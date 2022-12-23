@@ -1,0 +1,67 @@
+def transcribe(dna):
+    #transcribe DNA sequence into RNA
+    rna = ""
+    for n in dna:
+        if n == "t" or n == "T":
+            rna += "U"
+        else:
+            rna += n
+    return rna
+    
+
+def compliment(dna):
+    #complimetary DNA strand
+    comp = ""
+    for n in dna:
+        if n == "t" or n == "T":
+            comp += "A"
+        elif n == "a" or n == "A":
+            comp += "T"
+        elif n == "g" or n == "G":
+            comp += "C"
+        elif n == "c" or n == "C":
+            comp += "G"
+        else:
+            continue
+    return comp
+    
+def rcompliment(dna):
+    #reverse complimetary DNA strand
+    rcomp = ""
+    for n in dna:
+        if n == "t" or n == "T":
+            rcomp = "A" + rcomp
+        elif n == "a" or n == "A":
+            rcomp = "T" + rcomp
+        elif n == "g" or n == "G":
+            rcomp = "C" + rcomp
+        elif n == "c" or n == "C":
+            rcomp = "G" + rcomp
+        else:
+            continue
+    return rcomp
+    
+    
+
+def GCcount(dna):
+    #percentage GC content
+    count = 0
+    for n in dna:
+        if n =="G" or n == "C":
+            count += 1
+        else:
+            continue
+    content = count / len(dna) * 100
+    content = round(content,2)
+    return content
+
+DNA = input("Please enter your DNA sequence.\n")
+
+print("\n")
+print(DNA + "\n" + str(compliment(DNA)))
+print("\n")
+print("GC percentage:\n" + str(GCcount(DNA)) + "%")
+print("\n")
+print("RNA transcription:\n" + str(transcribe(DNA)))
+print("\n")
+print("reverse complimentary strand\n" + str(rcompliment(DNA)))
