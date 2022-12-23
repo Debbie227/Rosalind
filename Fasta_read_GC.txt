@@ -1,4 +1,4 @@
-#Parse through a file with multiple FASTA sequences and give the GC content of each sequence.
+#Parse through a file with multiple FASTA sequences and give the GC content of each sequence. 
 
 myFile = open('Fasta.txt')
 
