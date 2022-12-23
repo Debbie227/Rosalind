@@ -1,1 +1,22 @@
 
+def nuclcnt(seq):
+    #Returns the numnber of each nucleotide in order of A,C,G,T from nucleotide sequences. 
+    a = 0
+    t = 0
+    c = 0
+    g = 0
+    for n in seq:
+        if n == "A" or n == "a":
+            a += 1
+        if n == "T" or n == "t":
+            t += 1
+        if n == "C" or n == "c":
+            c += 1
+        if n == "G" or n == "g":
+            g += 1
+        else:
+            continue
+    return str(a) +" " + str(c) + " " + str(g) + " " + str(t)
+    
+DNA = input("Please enter your DNA sequence.\n")
+print(nuclcnt(DNA))
