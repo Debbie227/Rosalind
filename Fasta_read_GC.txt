@@ -1,0 +1,49 @@
+#Parse through a file with multiple FASTA sequences and give the GC content of each sequence.
+
+myFile = open('Fasta.txt')
+
+myLines = myFile.readlines()
+myLines.append(">")           #Show end of file
+#print(myLines)
+myFile.close()
+
+FastaName = ""
+seq = ""
+Firstline = True
+
+
+
+for line in myLines:
+  if line.startswith(">"):
+    line = line.strip()
+    FastaName = line
+    
+    if Firstline == True:
+      print(FastaName)
+    
+    Firstline = False
+#    if seq == "":
+#      continue
+#    else:
+#      print(seq)
+    
+    GCcont = 0
+    try:
+      for n in seq:
+        if n == "G" or n == "C":
+          GCcont += 1
+      print(round(GCcont / len(seq) * 100, 6))
+    except ZeroDivisionError:
+      continue
+    if FastaName == ">":          #Supress end of file printing
+      continue
+    else:
+      print(FastaName)  
+    
+    seq = ""
+    
+  else:
+    line = line.strip()
+    seq = seq + line
+    
+ 
